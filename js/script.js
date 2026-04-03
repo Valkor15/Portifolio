@@ -14,10 +14,8 @@ window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
     if (!preloader) return;
 
-    setTimeout(() => {
-        preloader.classList.add('hide');
-        preloader.remove();
-    }, 800);
+    preloader.classList.add('hide');
+    setTimeout(() => preloader.remove(), 500);
 });
 
 // ===== MENU MOBILE =====
@@ -45,98 +43,88 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== TYPING ANIMATION =====
-const typedTextElement = document.querySelector('.typed-text');
+// ===== TYPING =====
+const typed = document.querySelector('.typed-text');
 
-if (typedTextElement) {
+if (typed) {
     const words = ['Desenvolvimento de Sistemas', 'Full Stack', 'Suporte TI', 'Programação'];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    let i = 0, j = 0, del = false;
 
-    function typeEffect() {
-        const currentWord = words[wordIndex];
+    function type() {
+        const word = words[i];
 
-        typedTextElement.textContent = isDeleting
-            ? currentWord.substring(0, charIndex--)
-            : currentWord.substring(0, charIndex++);
+        typed.textContent = del
+            ? word.substring(0, j--)
+            : word.substring(0, j++);
 
-        if (!isDeleting && charIndex === currentWord.length) {
-            isDeleting = true;
-            return setTimeout(typeEffect, 2000);
+        if (!del && j === word.length) {
+            del = true;
+            return setTimeout(type, 1500);
         }
 
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
+        if (del && j === 0) {
+            del = false;
+            i = (i + 1) % words.length;
         }
 
-        setTimeout(typeEffect, isDeleting ? 80 : 120);
+        setTimeout(type, del ? 60 : 100);
     }
 
-    typeEffect();
+    type();
 }
 
-// ===== ANIMAÇÃO SKILLS (CORRIGIDA) =====
+// ===== SKILLS =====
 function animateSkills() {
-    const bars = document.querySelectorAll('.skill-progress, .language-progress');
-
-    bars.forEach(bar => {
-        if (!bar.dataset.target) {
-            bar.dataset.target = bar.style.width || '80%';
-            bar.style.width = '0%';
-        }
-
-        const rect = bar.getBoundingClientRect();
-        const visible = rect.top < window.innerHeight - 50;
-
-        if (visible && !bar.classList.contains('animated')) {
-            bar.style.width = bar.dataset.target;
-            bar.classList.add('animated');
-        }
-    });
+    document.querySelectorAll('.skill-progress:not(.animated), .language-progress:not(.animated)')
+        .forEach(bar => {
+            const rect = bar.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                bar.style.width = bar.dataset.target || bar.style.width || '80%';
+                bar.classList.add('animated');
+            }
+        });
 }
 
 // ===== REVEAL =====
 function revealOnScroll() {
-    document.querySelectorAll('.about-card, .education-card, .timeline-item, .skills-category, .contact-card, .project-card')
+    document.querySelectorAll('.about-card:not(.revealed), .education-card:not(.revealed), .project-card:not(.revealed)')
         .forEach(el => {
             const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100 && !el.classList.contains('revealed')) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
+            if (rect.top < window.innerHeight - 100) {
                 el.classList.add('revealed');
             }
         });
 }
 
 // ===== STATS =====
-let statsAnimated = false;
+let statsDone = false;
 
 function animateStats() {
-    const statsSection = document.querySelector('.stats-card');
-    if (!statsSection) return false;
+    if (statsDone) return;
 
-    const rect = statsSection.getBoundingClientRect();
-    if (!(rect.top < window.innerHeight && rect.bottom > 0)) return false;
+    const section = document.querySelector('.stats-card');
+    if (!section) return;
+
+    const rect = section.getBoundingClientRect();
+    if (!(rect.top < window.innerHeight && rect.bottom > 0)) return;
 
     DOM.statNumbers.forEach(stat => {
         const target = +stat.dataset.count;
         let current = 0;
-        const increment = target / 50;
+        const step = target / 40;
 
         const timer = setInterval(() => {
-            current += increment;
+            current += step;
             if (current >= target) {
                 stat.textContent = target;
                 clearInterval(timer);
             } else {
                 stat.textContent = Math.floor(current);
             }
-        }, 30);
+        }, 25);
     });
 
-    return true;
+    statsDone = true;
 }
 
 // ===== BACK TO TOP =====
@@ -144,22 +132,18 @@ DOM.backToTop?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ===== SCROLL CENTRALIZADO =====
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+// ===== SCROLL OTIMIZADO =====
+let ticking = false;
 
-    // HEADER
-    DOM.header?.classList.toggle('scrolled', scrollY > 50);
+function onScroll() {
+    const y = window.scrollY;
 
-    // BACK TO TOP
-    DOM.backToTop?.classList.toggle('show', scrollY > 300);
+    DOM.header?.classList.toggle('scrolled', y > 50);
+    DOM.backToTop?.classList.toggle('show', y > 300);
 
-    // ACTIVE LINK
     let current = '';
-    DOM.sections.forEach(section => {
-        if (scrollY >= section.offsetTop - 200) {
-            current = section.id;
-        }
+    DOM.sections.forEach(sec => {
+        if (y >= sec.offsetTop - 200) current = sec.id;
     });
 
     DOM.navLinks.forEach(link => {
@@ -169,26 +153,28 @@ window.addEventListener('scroll', () => {
         );
     });
 
-    // ANIMAÇÕES
     animateSkills();
     revealOnScroll();
+    animateStats();
 
-    if (!statsAnimated) {
-        statsAnimated = animateStats();
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(onScroll);
+        ticking = true;
     }
 });
 
-// ===== FOOTER YEAR =====
-function updateFooterYear() {
-    const footerText = document.querySelector('.footer-text p');
-    if (footerText) {
-        footerText.innerHTML = footerText.innerHTML.replace(/\d{4}/, new Date().getFullYear());
-    }
-}
-
-// ===== INIT =====
+// ===== FOOTER =====
 document.addEventListener('DOMContentLoaded', () => {
-    updateFooterYear();
+    const footer = document.querySelector('.footer-text p');
+    if (footer) {
+        footer.innerHTML = footer.innerHTML.replace(/\d{4}/, new Date().getFullYear());
+    }
+
+    // inicia leve
     revealOnScroll();
     animateSkills();
 });

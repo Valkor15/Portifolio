@@ -19,8 +19,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     
-    <!-- Favicon (opcional) -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Preloader -->
@@ -35,7 +35,9 @@
     <header class="header">
         <nav class="navbar">
             <div class="nav-brand">
-                <a href="#home" class="logo">LGS<span>Oliveira</span></a>
+                <a href="#home" class="logo">
+                    <img src="./assets/logo_portifolio.svg" alt="Luis Gustavo Oliveira" class="logo-img">
+                </a>
             </div>
             <div class="nav-menu">
                 <ul class="nav-links">
@@ -44,6 +46,7 @@
                     <li><a href="#experience" class="nav-link">Experiência</a></li>
                     <li><a href="#education" class="nav-link">Educação</a></li>
                     <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#projects" class="nav-link">Projetos</a></li>
                     <li><a href="#contact" class="nav-link">Contato</a></li>
                 </ul>
                 <div class="hamburger">
@@ -78,9 +81,6 @@
                             <a href="#experience" class="btn btn-outline">
                                 <i class="fas fa-briefcase"></i> Ver Trabalhos
                             </a>
-                            <!-- <a href="#" class="btn btn-icon" id="downloadCV">
-                                <i class="fas fa-download"></i>
-                            </a> -->
                         </div>
                         <div class="hero-social">
                             <a href="https://github.com/luisgustavooliveira242" class="social-icon" target="_blank">
@@ -103,7 +103,7 @@
                             <div class="shape shape-2"></div>
                             <div class="shape shape-3"></div>
                         </div>
-                        <div class="stats-card">
+                        <!-- <div class="stats-card">
                             <div class="stat">
                                 <span class="stat-number" data-count="4">0</span>
                                 <span class="stat-label">+ Anos Exp</span>
@@ -112,19 +112,10 @@
                                 <span class="stat-number" data-count="4">0</span>
                                 <span class="stat-label">Projetos</span>
                             </div>
-                            <!-- <div class="stat">
-                                <span class="stat-number" data-count="0">0</span>
-                                <span class="stat-label">Clientes</span>
-                            </div> -->
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-            <!-- <div class="hero-wave">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                    <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                </svg>
-            </div> -->
         </section>
 
         <!-- Seção Sobre -->
@@ -363,8 +354,6 @@
                                     <div class="skill-progress" style="width: 75%"></div>
                                 </div>
                             </div>
-                        </div><br>
-                        <div class="skills-list">
                             <div class="skill-item" data-skill="PostgreSQL">
                                 <span>PostgreSQL</span>
                                 <div class="skill-bar">
@@ -383,19 +372,19 @@
                             <div class="skill-item" data-skill="Bootstrap">
                                 <span>Bootstrap</span>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 50%"></div>
+                                    <div class="skill-progress" style="width: 80%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Django">
                                 <span>Django</span>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 20%"></div>
+                                    <div class="skill-progress" style="width: 70%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Flutter">
                                 <span>Flutter</span>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
+                                    <div class="skill-progress" style="width: 65%"></div>
                                 </div>
                             </div>
                         </div>
@@ -468,17 +457,203 @@
                                 <div class="language-progress" style="width: 100%"></div>
                             </div>
                         </div>
-                        <!-- <div class="language-item">
-                            <div class="language-header">
-                                <span class="language-name">Inglês</span>
-                                <span class="language-level">Intermediário</span>
-                            </div>
-                            <div class="language-bar">
-                                <div class="language-progress" style="width: 60%"></div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Seção Projetos -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Meus Trabalhos</span>
+                    <h2 class="section-title">Projetos</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-description">
+                        Conheça alguns dos meus projetos
+                    </p>
+                </div>
+                
+                <!-- Filtros de Categoria -->
+                <!-- <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                </div> -->
+                
+                <div class="projects-grid">
+                <!-- Projeto 1 - SIEA (Concluído) -->
+                <div class="project-card" data-category="web">
+                    <div class="project-status planejamento">
+                        <i class="fas fa-clock"></i> Planejamento
+                    </div>
+                    <div class="project-image">
+                        <img src="./assets/SIEA.png" alt="SIEA">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JAVASCRIPT</span>
+                            <span>PHP</span>
+                            <span>BOOTSTRAP</span>
+                            <span>POSTGRESQL</span>
+                        </div>
+                        <h3>SIEA - Sistema Integrado de Educação e Avaliação</h3>
+                        <p>Solução inteligente de gestão educacional que conecta dados acadêmicos, administrativos e financeiros, proporcionando controle total, automação de processos e apoio estratégico para instituições de ensino.</p>
+                    </div>
+                </div>
+                    
+                    <!-- Projeto 2 -->
+                    <div class="project-card" data-category="backend">
+                        <div class="project-status planejamento">
+                            <i class="fas fa-clock"></i> Planejamento
+                        </div>
+                        <div class="project-image">
+                            <img src="./assets/GIRH.png" alt="Sistema de Tarefas">
+                            <div class="project-overlay">
+                                <!-- <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-github" target="_blank"><i class="fab fa-github"></i></a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JAVASCRIPT</span>
+                                <span>PHP</span>
+                                <span>BOOTSTRAP</span>
+                                <span>POSTGRESQL</span>
+                            </div>
+                            <h3>GIRH - Gestão Integrada de Recursos Humanos</h3>
+                            <p>ERP de recursos humanos desenvolvido para automatizar e centralizar a gestão de pessoas, com módulos integrados para controle de colaboradores, jornada de trabalho, desempenho e processos internos.</p>                            
+                            <!-- <div class="project-meta">
+                                <span><i class="far fa-calendar-alt"></i> 2024</span>
+                                <a href="#" class="read-more">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 3 -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-status em-andamento">
+                            <i class="fas fa-spinner fa-pulse"></i> Em Andamento
+                        </div>
+                        <div class="project-image">
+                            <img src="./assets/ricibuild.png" alt="ricibuild">
+                            <div class="project-overlay">
+                                <!-- <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-github" target="_blank"><i class="fab fa-github"></i></a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JAVASCRIPT</span>
+                                <span>PHP</span>
+                                <span>POSTGRESQL</span>
+                            </div>
+                            </div>
+                            <h3>RiciBuild - Construindo eficiência, projetando lucro!</h3>
+                            <p>Plataforma completa para gerenciar obras, equipes, ferramentas e equipamentos, com controle de agendas e projeção de lucros. Mais organização, eficiência e decisões estratégicas.</p>
+                            <!-- <div class="project-meta">
+                                <span><i class="far fa-calendar-alt"></i> 2024</span>
+                                <a href="#" class="read-more">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 4
+                    <div class="project-card" data-category="design">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=UI/UX+Design" alt="UI/UX Design">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-github" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>Figma</span>
+                                <span>Photoshop</span>
+                                <span>UI/UX</span>
+                            </div>
+                            <h3>Design System para App Mobile</h3>
+                            <p>Sistema de design completo para aplicativo mobile com componentes reutilizáveis.</p>
+                            <div class="project-meta">
+                                <span><i class="far fa-calendar-alt"></i> 2023</span>
+                                <a href="#" class="read-more">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Blog Post 1 -->
+                    <!-- <div class="project-card" data-category="blog">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=Blog+Post" alt="Blog Post">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>Carreira</span>
+                                <span>Dicas</span>
+                            </div>
+                            <h3>Como começar na área de TI</h3>
+                            <p>Compartilho minha jornada e dicas para quem está começando no mundo da tecnologia.</p>
+                            <div class="project-meta">
+                                <span><i class="far fa-calendar-alt"></i> 15 Jan 2024</span>
+                                <span><i class="far fa-comment"></i> 12 comentários</span>
+                            </div>
+                            <a href="#" class="read-more">Ler artigo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Blog Post 2 -->
+                    <!-- <div class="project-card" data-category="blog">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/400x250/ef4444/ffffff?text=Blog+Post" alt="Blog Post">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>Tutorial</span>
+                            </div>
+                            <h3>Criando uma API REST com PHP</h3>
+                            <p>Tutorial passo a passo de como criar uma API RESTful utilizando PHP puro e MySQL.</p>
+                            <div class="project-meta">
+                                <span><i class="far fa-calendar-alt"></i> 28 Fev 2024</span>
+                                <span><i class="far fa-comment"></i> 8 comentários</span>
+                            </div>
+                            <a href="#" class="read-more">Ler artigo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- Botão Ver Mais -->
+                <!-- <div class="projects-more">
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-plus-circle"></i> Ver mais projetos
+                    </a>
+                </div> -->
             </div>
         </section>
 
@@ -518,6 +693,13 @@
                             </div>
                             <h3>Endereço</h3>
                             <p>Rua China 95, Itapira - SP</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Portfólio Online</h3>
+                            <p>GitHub Portfolio</p>
                         </div>
                     </div>
                     <div class="contact-form-wrapper">
@@ -560,7 +742,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Luis Gustavo Sartori de Oliveira - Todos os direitos reservados</p>
+                    <p>&copy; 2026 Luis Gustavo Sartori de Oliveira - Todos os direitos reservados</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://github.com/luisgustavooliveira242" class="social-link" target="_blank">
@@ -590,6 +772,16 @@
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Fale comigo!</span>
     </a>
+
+    <!-- Modal para detalhes do projeto -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody">
+                <!-- Conteúdo dinâmico do modal -->
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>

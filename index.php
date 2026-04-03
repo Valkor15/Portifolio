@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Portfólio profissional de Luis Gustavo Sartori de Oliveira - Técnico em Desenvolvimento de Sistemas">
+    <meta name="keywords" content="desenvolvedor, sistemas, portfólio, TI, programador">
+    <meta name="author" content="Luis Gustavo Sartori de Oliveira">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <title>Luis Gustavo | Portfólio Profissional</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome 6 (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (opcional) -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
+
+    <!-- Header com Navegação -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="#home" class="logo">LGS<span>Oliveira</span></a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#experience" class="nav-link">Experiência</a></li>
+                    <li><a href="#education" class="nav-link">Educação</a></li>
+                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span class="badge">👋 Olá, eu sou</span>
+                        </div>
+                        <h1 class="hero-title">Luis Gustavo <span class="highlight">Sartori de Oliveira</span></h1>
+                        <p class="hero-subtitle">Técnico em <span class="typed-text"></span><span class="cursor">|</span></p>
+                        <p class="hero-description">
+                            Desenvolvedor apaixonado por tecnologia, com experiência em suporte técnico, 
+                            desenvolvimento web e administração. Busco constantemente aprender e aplicar 
+                            novas tecnologias para resolver problemas reais.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Contrate-me
+                            </a>
+                            <a href="#experience" class="btn btn-outline">
+                                <i class="fas fa-briefcase"></i> Ver Trabalhos
+                            </a>
+                            <a href="#" class="btn btn-icon" id="downloadCV">
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                        <div class="hero-social">
+                            <a href="https://github.com/luisgustavooliveira242" class="social-icon" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/luis-gustavo-s-oliveira-84105b298/" class="social-icon" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://wa.me/5519997202082" class="social-icon" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="code-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="floating-shapes">
+                            <div class="shape shape-1"></div>
+                            <div class="shape shape-2"></div>
+                            <div class="shape shape-3"></div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stat">
+                                <span class="stat-number" data-count="4">0</span>
+                                <span class="stat-label">+ Anos Exp</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="4">0</span>
+                                <span class="stat-label">Projetos</span>
+                            </div>
+                            <!-- <div class="stat">
+                                <span class="stat-number" data-count="0">0</span>
+                                <span class="stat-label">Clientes</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div> -->
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Sobre Mim</span>
+                    <h2 class="section-title">Conheça <span class="highlight">minha trajetória</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <h3>Quem sou eu?</h3>
+                        <p>Sou um profissional apaixonado por tecnologia e desenvolvimento de sistemas, com experiência em suporte técnico, desenvolvimento web e administração.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Meu Objetivo</h3>
+                        <p>Desenvolver minhas habilidades e contribuir para o sucesso da empresa, buscando crescimento contínuo profissional e pessoal.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Diferenciais</h3>
+                        <p>Proatividade, trabalho em equipe, facilidade de aprendizado e comprometimento com resultados de qualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Experiência -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Experiência Profissional</span>
+                    <h2 class="section-title">Minha <span class="highlight">jornada profissional</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025 - Atual</div>
+                        <div class="timeline-content">
+                            <h3>Auxiliar Administrativo & Técnico de TI</h3>
+                            <h4>JFA Comércio</h4>
+                            <p>Atividades administrativas e suporte técnico em tecnologia da informação.</p>
+                            <div class="timeline-tags">
+                                <span>Suporte TI</span>
+                                <span>Administração</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 - 2025</div>
+                        <div class="timeline-content">
+                            <h3>Educador Social & Técnico de TI</h3>
+                            <h4>Jovem em Ação</h4>
+                            <p>Educação social e suporte técnico em TI para projetos sociais.</p>
+                            <div class="timeline-tags">
+                                <span>Educação</span>
+                                <span>TI Social</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>Auxiliar Administrativo</h3>
+                            <h4>Riciluca Elétrica</h4>
+                            <p>Suporte administrativo, organização de documentos e atendimento.</p>
+                            <div class="timeline-tags">
+                                <span>Administração</span>
+                                <span>Atendimento</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>Atendente/Projetista</h3>
+                            <h4>Cine A</h4>
+                            <p>Atendimento ao cliente e desenvolvimento de projetos personalizados.</p>
+                            <div class="timeline-tags">
+                                <span>Atendimento</span>
+                                <span>Projetos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>Monitoria Voluntária</h3>
+                            <h4>ETEC</h4>
+                            <p>Auxílio aos alunos em atividades acadêmicas e suporte em projetos de desenvolvimento.</p>
+                            <div class="timeline-tags">
+                                <span>Monitoria</span>
+                                <span>Voluntário</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Educação -->
+        <section id="education" class="education">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Formação Acadêmica</span>
+                    <h2 class="section-title">Educação e <span class="highlight">Certificações</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-info">
+                            <h3>Bacharelado em Administração</h3>
+                            <p>Cruzeiro do Sul</p>
+                            <span class="education-period">2025 - 2028</span>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="education-info">
+                            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+                            <p>ETEC João Maria Stevanatto</p>
+                            <span class="education-period">2021 - 2023</span>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="education-info">
+                            <h3>Ensino Fundamental II</h3>
+                            <p>E. E. Professor Cândido de Moura</p>
+                            <span class="education-period">2016 - 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Habilidades -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Competências</span>
+                    <h2 class="section-title">Habilidades <span class="highlight">Técnicas</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Linguagens</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="Java">
+                                <span>Java</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="PHP">
+                                <span>PHP</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Python">
+                                <span>Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="JavaScript">
+                                <span>JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-paintbrush"></i>
+                            <h3>Front-end</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="HTML5">
+                                <span>HTML5</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="CSS3">
+                                <span>CSS3</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Bootstrap">
+                                <span>Bootstrap</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-database"></i>
+                            <h3>Banco de Dados</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="MySQL">
+                                <span>MySQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="PostgreSQL">
+                                <span>PostgreSQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-cubes"></i>
+                            <h3>Frameworks</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="Bootstrap">
+                                <span>Bootstrap</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Django">
+                                <span>Django</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Flutter">
+                                <span>Flutter</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-palette"></i>
+                            <h3>Design</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="Canva">
+                                <span>Canva</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Photoshop">
+                                <span>Photoshop</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="CorelDraw">
+                                <span>CorelDraw</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-header">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Office</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item" data-skill="Word">
+                                <span>Word</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Excel">
+                                <span>Excel</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="PowerPoint">
+                                <span>PowerPoint</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="languages-section">
+                    <h3 class="languages-title">Idiomas</h3>
+                    <div class="languages-list">
+                        <div class="language-item">
+                            <div class="language-header">
+                                <span class="language-name">Português</span>
+                                <span class="language-level">Nativo</span>
+                            </div>
+                            <div class="language-bar">
+                                <div class="language-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="language-item">
+                            <div class="language-header">
+                                <span class="language-name">Inglês</span>
+                                <span class="language-level">Intermediário</span>
+                            </div>
+                            <div class="language-bar">
+                                <div class="language-progress" style="width: 60%"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Contato</span>
+                    <h2 class="section-title">Vamos <span class="highlight">conversar?</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3>Telefone</h3>
+                            <p>(19) 99720-2082</p>
+                            <a href="https://wa.me/5519997202082" class="contact-action" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>luisgustavooliveira242@gmail.com</p>
+                            <a href="mailto:luisgustavooliveira242@gmail.com" class="contact-action">
+                                <i class="fas fa-paper-plane"></i> Enviar Email
+                            </a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Endereço</h3>
+                            <p>Rua China 95, Itapira - SP</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Portfólio Online</h3>
+                            <p>GitHub Portfolio</p>
+                            <a href="https://luisgustavooliveira242.github.io/Portifolio/" class="contact-action" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Visitar Portfólio
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nome completo</label>
+                                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                                <i class="fas fa-user form-icon"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                <i class="fas fa-envelope form-icon"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem">
+                                <i class="fas fa-tag form-icon"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+                                <i class="fas fa-comment form-icon"></i>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                            </button>
+                            <p class="form-note">
+                                <i class="fas fa-lock"></i> Sua mensagem é segura e confidencial
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Luis Gustavo Sartori de Oliveira - Todos os direitos reservados</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/luisgustavooliveira242" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/luis-gustavo-s-oliveira-84105b298/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/5519997202082" class="social-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/luislsgstv/" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5519997202082" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale comigo!</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

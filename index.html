@@ -11,7 +11,7 @@
     <title>Luis Gustavo | Portfólio Profissional</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     
     <!-- Font Awesome 6 (ícones) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -39,23 +39,38 @@
                     <img src="./assets/logo_portifolio.svg" alt="Luis Gustavo Oliveira" class="logo-img">
                 </a>
             </div>
-            <div class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Início</a></li>
-                    <li><a href="#about" class="nav-link">Sobre</a></li>
-                    <li><a href="#experience" class="nav-link">Experiência</a></li>
-                    <li><a href="#education" class="nav-link">Educação</a></li>
-                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                    <li><a href="#projects" class="nav-link">Projetos</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+            
+            <!-- Menu Desktop -->
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#experience" class="nav-link">Experiência</a></li>
+                <li><a href="#education" class="nav-link">Educação</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            
+            <!-- Menu Mobile (Hamburger) -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </nav>
+        
+        <!-- Menu Mobile - Links (aparece quando clica no hamburger) -->
+        <div class="nav-menu">
+            <ul class="nav-links-mobile">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#experience" class="nav-link">Experiência</a></li>
+                <li><a href="#education" class="nav-link">Educação</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -289,27 +304,39 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="Java">
-                                <span>Java</span>
+                                <div class="skill-info">
+                                    <span>Java</span>
+                                    <span class="skill-percentage">25%</span>
+                                </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" style="width: 25%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="PHP">
-                                <span>PHP</span>
+                                <div class="skill-info">
+                                    <span>PHP</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 80%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Python">
-                                <span>Python</span>
+                                <div class="skill-info">
+                                    <span>Python</span>
+                                    <span class="skill-percentage">30%</span>
+                                </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
+                                    <div class="skill-progress" style="width: 30%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="JavaScript">
-                                <span>JavaScript</span>
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" style="width: 80%"></div>
                                 </div>
                             </div>
                         </div>
@@ -322,21 +349,21 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="HTML5">
-                                <span>HTML5</span>
+                                <div class="skill-info">
+                                    <span>HTML5</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 100%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="CSS3">
-                                <span>CSS3</span>
+                                <div class="skill-info">
+                                    <span>CSS3</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="Bootstrap">
-                                <span>Bootstrap</span>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
                                 </div>
                             </div>
                         </div>
@@ -349,13 +376,19 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="MySQL">
-                                <span>MySQL</span>
+                                <div class="skill-info">
+                                    <span>MySQL</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 75%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="PostgreSQL">
-                                <span>PostgreSQL</span>
+                                <div class="skill-info">
+                                    <span>PostgreSQL</span>
+                                    <span class="skill-percentage">50%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 50%"></div>
                                 </div>
@@ -370,21 +403,30 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="Bootstrap">
-                                <span>Bootstrap</span>
+                                <div class="skill-info">
+                                    <span>Bootstrap</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 80%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Django">
-                                <span>Django</span>
+                                <div class="skill-info">
+                                    <span>Django</span>
+                                    <span class="skill-percentage">15%</span>
+                                </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
+                                    <div class="skill-progress" style="width: 15%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Flutter">
-                                <span>Flutter</span>
+                                <div class="skill-info">
+                                    <span>Flutter</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 65%"></div>
+                                    <div class="skill-progress" style="width: 75%"></div>
                                 </div>
                             </div>
                         </div>
@@ -397,19 +439,28 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="Canva">
-                                <span>Canva</span>
+                                <div class="skill-info">
+                                    <span>Canva</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 100%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Photoshop">
-                                <span>Photoshop</span>
+                                <div class="skill-info">
+                                    <span>Photoshop</span>
+                                    <span class="skill-percentage">50%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 50%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="CorelDraw">
-                                <span>CorelDraw</span>
+                                <div class="skill-info">
+                                    <span>CorelDraw</span>
+                                    <span class="skill-percentage">60%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 60%"></div>
                                 </div>
@@ -424,19 +475,28 @@
                         </div>
                         <div class="skills-list">
                             <div class="skill-item" data-skill="Word">
-                                <span>Word</span>
+                                <div class="skill-info">
+                                    <span>Word</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 100%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="Excel">
-                                <span>Excel</span>
+                                <div class="skill-info">
+                                    <span>Excel</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 90%"></div>
                                 </div>
                             </div>
                             <div class="skill-item" data-skill="PowerPoint">
-                                <span>PowerPoint</span>
+                                <div class="skill-info">
+                                    <span>PowerPoint</span>
+                                    <span class="skill-percentage">100%</span>
+                                </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: 100%"></div>
                                 </div>

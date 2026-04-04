@@ -23,31 +23,82 @@ window.addEventListener('load', () => {
 });
 
 // ===== MENU MOBILE =====
-if (DOM.hamburger) {
-    DOM.hamburger.addEventListener('click', () => {
-        DOM.hamburger.classList.toggle('active');
-        if (DOM.navMenu) {
-            DOM.navMenu.classList.toggle('active');
+// ===== MENU MOBILE CORRIGIDO =====
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const navLinksMobile = document.querySelectorAll('.nav-links-mobile .nav-link');
+const navLinksDesktop = document.querySelectorAll('.nav-links .nav-link');
+const allNavLinks = [...navLinksMobile, ...navLinksDesktop];
+
+// Abrir/fechar menu mobile
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        // Previne scroll quando menu está aberto
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
         }
-        document.body.style.overflow = 
-            DOM.navMenu?.classList.contains('active') ? 'hidden' : '';
     });
 }
 
-DOM.navLinks.forEach(link => {
+// Fechar menu ao clicar em um link
+allNavLinks.forEach(link => {
     link.addEventListener('click', () => {
-        DOM.hamburger?.classList.remove('active');
-        DOM.navMenu?.classList.remove('active');
-        document.body.style.overflow = '';
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 });
+
+// Fechar menu ao clicar fora (opcional)
+document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('active')) {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+});
+
+// Atualizar link ativo no scroll
+function updateActiveLink() {
+    const sections = document.querySelectorAll('section');
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    allNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+window.addEventListener('load', updateActiveLink);
 
 // ===== SCROLL SUAVE COM OFFSET =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
         e.preventDefault();
         const targetId = anchor.getAttribute('href');
-        if (targetId === '#') return;
+        if (targetId === '#' || targetId === '') return;
         
         const target = document.querySelector(targetId);
         if (target) {
@@ -168,8 +219,13 @@ function animateStats() {
     if (!(rect.top < window.innerHeight && rect.bottom > 0)) return;
 
     DOM.statNumbers.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-count'));
-        if (isNaN(target)) return;
+        let target = parseInt(stat.getAttribute('data-count'));
+        if (isNaN(target)) {
+            // Se não tiver data-count, tenta pegar do texto
+            const text = stat.textContent;
+            target = parseInt(text);
+            if (isNaN(target)) target = 100;
+        }
         
         let current = 0;
         const step = target / 40;
@@ -310,7 +366,7 @@ window.addEventListener('load', () => {
     });
 });
 
-// ===== MODAL PARA PROJETOS (adicional) =====
+// ===== MODAL PARA PROJETOS =====
 function initModal() {
     const modal = document.getElementById('projectModal');
     const modalClose = document.querySelector('.modal-close');
@@ -343,6 +399,7 @@ function initContactForm() {
     if (!contactForm) return;
     
     function showNotification(message, type = 'success') {
+        // Remove notificações existentes
         const existingNotifications = document.querySelectorAll('.notification');
         existingNotifications.forEach(notif => notif.remove());
         
@@ -357,9 +414,14 @@ function initContactForm() {
         
         document.body.appendChild(notification);
         
+        // Animação de saída
         setTimeout(() => {
             notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
+            setTimeout(() => {
+                if (notification && notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
         }, 3000);
     }
     
@@ -385,11 +447,13 @@ function initContactForm() {
         }
         
         const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (!submitBtn) return;
+        
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
         
-        // Simular envio
+        // Simular envio (substitua por envio real quando tiver backend)
         setTimeout(() => {
             showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
             contactForm.reset();
@@ -399,6 +463,7 @@ function initContactForm() {
     });
 }
 
+// Inicializa formulário de contato
 initContactForm();
 
 // ===== DOWNLOAD CV =====
@@ -406,15 +471,181 @@ const downloadBtn = document.getElementById('downloadCV');
 if (downloadBtn) {
     downloadBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const notification = document.createElement('div');
-        notification.className = 'notification notification-info';
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas fa-info-circle"></i>
-                <span>Currículo disponível para download em breve!</span>
-            </div>
-        `;
-        document.body.appendChild(notification);
-        setTimeout(() => notification.remove(), 3000);
+        
+        // Adiciona animação de loading
+        const originalText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando...';
+        downloadBtn.disabled = true;
+        
+        // Simula preparação do download
+        setTimeout(() => {
+            const notification = document.createElement('div');
+            notification.className = 'notification notification-info';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Currículo disponível para download em breve!</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (notification && notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+            
+            // Restaura o botão
+            downloadBtn.innerHTML = originalText;
+            downloadBtn.disabled = false;
+        }, 1000);
     });
 }
+
+// ===== FILTRO DE PROJETOS =====
+function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (filterBtns.length === 0) return;
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active de todos os botões
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Adiciona active ao clicado
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filter === 'todos' || filter === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    const tags = card.querySelectorAll('.project-tags span');
+                    let hasTag = false;
+                    tags.forEach(tag => {
+                        if (tag.textContent.toLowerCase() === filter.toLowerCase()) {
+                            hasTag = true;
+                        }
+                    });
+                    
+                    if (hasTag) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                }
+            });
+        });
+    });
+}
+
+// Inicializa filtros de projetos
+initProjectFilters();
+
+// ===== FUNÇÃO PARA LER MAIS (MODAL) =====
+function initReadMoreButtons() {
+    const readMoreBtns = document.querySelectorAll('.read-more');
+    const modal = document.getElementById('projectModal');
+    
+    if (!modal) return;
+    
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectCard = btn.closest('.project-card');
+            if (!projectCard) return;
+            
+            // Extrai dados do projeto
+            const title = projectCard.querySelector('h3')?.textContent || 'Projeto';
+            const description = projectCard.querySelector('p')?.textContent || '';
+            const tags = Array.from(projectCard.querySelectorAll('.project-tags span')).map(tag => tag.textContent);
+            const imageSrc = projectCard.querySelector('.project-image img')?.src || '';
+            
+            // Preenche o modal
+            const modalTitle = modal.querySelector('.modal-header h2');
+            const modalTags = modal.querySelector('.modal-tags');
+            const modalDescription = modal.querySelector('.modal-content-section p');
+            const modalImage = modal.querySelector('.modal-image');
+            
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDescription) modalDescription.textContent = description;
+            
+            if (modalTags) {
+                modalTags.innerHTML = tags.map(tag => `<span>${tag}</span>`).join('');
+            }
+            
+            if (modalImage) {
+                modalImage.innerHTML = `<img src="${imageSrc}" alt="${title}" style="width: 100%; border-radius: var(--border-radius);">`;
+            }
+            
+            // Mostra o modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+}
+
+// Inicializa botões de leitura
+setTimeout(() => {
+    initReadMoreButtons();
+}, 500);
+
+// ===== CORREÇÃO PARA O MENU MOBILE =====
+function fixMobileMenu() {
+    if (window.innerWidth <= 968) {
+        if (DOM.navMenu && !DOM.navMenu.classList.contains('nav-menu')) {
+            // Garante que o nav-menu existe
+            const navMenu = document.querySelector('.nav-links');
+            if (navMenu && !navMenu.parentElement.classList.contains('nav-menu')) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'nav-menu';
+                navMenu.parentNode.insertBefore(wrapper, navMenu);
+                wrapper.appendChild(navMenu);
+                DOM.navMenu = wrapper;
+            }
+        }
+    }
+}
+
+// Executa correção do menu
+fixMobileMenu();
+
+// ===== ANIMAÇÃO DE SAÍDA PARA NOTIFICAÇÕES =====
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// ===== PREVENÇÃO DE ERROS =====
+window.addEventListener('error', (e) => {
+    console.error('Erro capturado:', e.message);
+});
+
+console.log('JavaScript inicializado com sucesso!');
